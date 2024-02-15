@@ -5,6 +5,8 @@ jQuery(()=>{
     loadFiles();
 })
 
+let selectedQuiz=[];
+
 
 function loadFiles(){
     $.get('/api/get_quizzes',(data)=>{
@@ -14,13 +16,14 @@ function loadFiles(){
             if(i%3==0){
                 $('#card-container').append(`<div class="row" id=row-card-`+ i%3 + `>`);
             }
-            card = $(`<div class="card col-4" style=""></div>`);
+            card = $(`<div class="card col-4" style="" id="card-quiz-`+quizname.replace(" ","_")+`"></div>`);
             cardBody = $(`<div class="card-body"></div>`);
-            cardTitle = $(`<h5 class="card-title" id="quiz-`+quizname+`">`+quizname+`</h5>`);
+            cardTitle = $(`<h5 class="card-title" id="quiz-`+quizname.replace(" ","_")+`">`+quizname+`</h5>`);
             cardText = $(`<p class="card-text"></p>`);
             cardBtnRename = $(`<input type="button" value="Rinomina" class="btn btn-primary me-1">`);
             cardBtnDelete = $(`<input type="button" value="Elimina" class="btn btn-danger ms-1">`);
             cardBtnStartQuiz = $(`<input type="button" value="Prova quiz" class="btn btn-success ms-2 me-1">`);
+            cardBtnSelectQuiz = $(`<input type="button" value="Seleziona"  class="btn ms-2 me-1" style="background-color:orange; color:white">`);
 
             cardBtnRename.on('click',()=>{
                 $("#modalRename").modal('show');
@@ -64,14 +67,29 @@ function loadFiles(){
                 });
                 
             })
+            cardBtnSelectQuiz.on('click',()=>{
+                console.log(quizname);
+                selQuiz = $("#card-quiz-"+quizname.replace(" ","_"));
+                console.log(selQuiz);
+                if(selectedQuiz.includes(quizname)){
+                    selectedQuiz = selectedQuiz.filter((quiz)=>{return quiz!=quizname});
+                    selQuiz.css("background-color","white");
+                } else{
+                    selectedQuiz.push(quizname);
+                    selQuiz.css("background-color","green");
+                }
+            })
 
             cardTitle.appendTo(cardBody);
             cardText.appendTo(cardBody);
             cardBody.append(cardBtnRename);
             cardBody.append(cardBtnDelete);
             cardBody.append(cardBtnStartQuiz);
+            cardBody.append(cardBtnSelectQuiz);
             cardBody.appendTo(card);
+
             card.appendTo($('#row-card-'+i%3));
+            
         })
     })
 }

@@ -1,11 +1,11 @@
 {
 	"quizzes": [
 		{
-			"name": "Mario",
+			"name": "Quiz Michi",
 			"path": "resources\\files\\quizfile_1707998499100.txt"
 		},
 		{
-			"name": "Marione",
+			"name": "Ciao Michi",
 			"path": "resources\\files\\quizfile_1708000902109.txt"
 		}
 	]
