@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid w-100 bg-warning">
+        <div class="row mt-5 w-100">
+            <div class="col-6 offset-3 bg-danger text-center">
+                <h1 class="text-center">Quiz Time</h1>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col-6">
+                <div class="container-fluid text-center">
+                    <a href="html/load_new.html" class="btn btn-primary btn-lg">Carica nuovo file</a>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="container-fluid text-center">
+                    <a href="html/load_new.html" class="btn btn-primary btn-lg">Carica nuovo file</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 ">
+            <div class="col">
+                <div class="container text-center mb-2">
+                    <h2 class="title text-white font-weigth-bolder">I tuoi quiz</h2>
+                </div>
+                <div class="container-fluid" id="card-container">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalRename" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalRenameTitle">Rinomina quiz</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <label for="inputRename" class="form-label">Nuovo nome</label>
+                <input type="text" class="form-control" id="inputRename" placeholder="Inserisci nuovo nome" required>
+
+                <div class="row mb-3">
+                    <div class="col-12 text-center">
+                        <span id="spanStatus"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+              <button type="button" class="btn btn-primary" id="btnSaveRename">Salva</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="modal fade" id="modalDelete" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="modalRenameTitle">Elimina file</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Sei sicuro di voler eliminare il file?</p>
+
+                <div class="row mb-3">
+                    <div class="col-12 text-center">
+                        <span id="spanStatusDelete"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Chiudi</button>
+              <button type="button" class="btn btn-primary" id="btnDeleteQuiz">Conferma</button>
+            </div>
+          </div>
+        </div>
+      </div>
+</body>
+
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+</html>

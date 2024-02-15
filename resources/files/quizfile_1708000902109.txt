@@ -1,0 +1,1 @@
+mongoimport --db <nomedb> --collection <nomecollection> --file <nomefile> --jsonArray

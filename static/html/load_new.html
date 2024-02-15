@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+</head>
+<body>
+    <div class="row">
+        <div class="col">
+            <div class="container-fluid w-50">
+                <div class="text-center w-100">
+                    <h2 class="mt-3 ">Carica nuovo file</h2>
+                </div>
+                
+                <form id="formLoad">
+                    <div class="row">
+                        <div class="mb-3 col-12">
+                            <div class="text-center">
+                                <label for="inputQuizname" class="form-label">Nome quiz</label>
+                            </div>
+                            <input type="text" class="form-control" id="inputQuizname" placeholder="Inserisci Nome quiz" required>
+                        </div>
+                    </div>
+                    <div class="container mb-5">
+                        <input class="form-control" type="file" id="inputFile" hidden>
+                        <input type="button" class="form-control btn btn-primary w-25 me-5" value="Carica file" onclick="document.getElementById('inputFile').click();" id="btnVisibleFile">
+                        <span id="spanFilename" class="w-25"></span>
+                    </div>
+                    <div class="row">
+                        <div class="mb-3 col-12 text-center">
+                            <button type="submit" class="form-control w-50 btn btn-primary" id="btnUpload">Conferma</button>
+                        </div>
+                    </div>
+                </form>
+                <div class="row mb-3">
+                    <div class="col-12 text-center">
+                        <span id="spanStatus" mt-3></span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="mb-3 col-12 text-center">
+                        <a class="btn btn-success" href="/">Ritorna alla home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="../js/jquery.min.js" type="text/javascript"></script>
+<script src="../bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="../js/load_new.js" type="text/javascript"></script>
+</html>
