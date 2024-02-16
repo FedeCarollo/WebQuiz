@@ -1,8 +1,6 @@
 jQuery(()=>{
-    $.get('/api',(data)=>{
-        console.log(data);
-    })
     loadFiles();
+    setupStartQuizBtn();
 })
 
 let selectedQuiz=[];
@@ -74,10 +72,22 @@ function loadFiles(){
                 if(selectedQuiz.includes(quizname)){
                     selectedQuiz = selectedQuiz.filter((quiz)=>{return quiz!=quizname});
                     selQuiz.css("background-color","white");
+                    if(selectedQuiz.length==0){
+                        $("#btnStartQuizHeader").attr("disabled",true);
+                    }
+                    
                 } else{
                     selectedQuiz.push(quizname);
                     selQuiz.css("background-color","green");
+                    $("#btnStartQuizHeader").attr("disabled",false);
                 }
+            })
+
+            cardBtnStartQuiz.on('click',()=>{
+                selectedQuiz = [];
+                selectedQuiz.push(quizname);
+                href = buildQuizURL(selectedQuiz);
+                window.location.href = href;
             })
 
             cardTitle.appendTo(cardBody);
@@ -92,4 +102,24 @@ function loadFiles(){
             
         })
     })
+}
+
+function setupStartQuizBtn(){
+    $("#btnStartQuizHeader").on('click',()=>{
+        if(selectedQuiz.length==0){
+            
+            return;
+        }
+        href = buildQuizURL(selectedQuiz);
+        window.location.href = href;
+    })
+}
+
+function buildQuizURL(quiz){
+    href = "/html/quiz.html?";
+    quiz.forEach((q)=>{
+        href += q+"&";
+    })
+    href = href.substring(0,href.length-1);
+    return href;
 }

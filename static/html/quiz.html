@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css" type="text/css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container-fluid w-100 bg-warning p-4">
+        <div class="row mt-5 w-100">
+            <div class="col-6 offset-3 bg-danger text-center">
+                <h1 class="text-center">Quiz Time</h1>
+            </div>
+        </div>
+        <div class="container-fluid" id="container-box" style="display: none;">
+            <div class="container text-center mt-5 mb-3">
+                <h1 id="question">Domanda:</h1>
+            </div>
+            <div class="row">
+                <div class="col-3 offset-2 bg-success">
+                    <button type="button" class="btn btn-outline-light w-100 p-5 fs-3 text-black" id="btnAns0">Risposta 1</button>
+                </div>
+                <div class="col-3 offset-2 bg-success">
+                    <button type="button" class="btn btn-outline-light w-100 p-5 fs-3 text-black" id="btnAns1">Risposta 2</button>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-3 offset-2 bg-success">
+                    <button type="button" class="btn btn-outline-light w-100 p-5 fs-3 text-black" id="btnAns2">Risposta 3</button>
+                </div>
+                <div class="col-3 offset-2 bg-success">
+                    <button type="button" class="btn btn-outline-light w-100 p-5 fs-3 text-black" id="btnAns3">Risposta 4</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row mt-5" id="container-btns">
+            <div class="col-4 offset-4  p-5">
+                <div class="container text-center">
+                    <div class="container">
+                        <button type="button" class="btn btn-lg btn-danger" disabled id="btnPrevious">Indietro</button>
+                        <button type="button" class="btn btn-lg btn-light" id="btnNext">Continua</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5" style="display: none;" id="container-recap">
+            <div class="col-12">
+                <div class="container text-center">
+                    <button type="button" class="btn btn-success mb-5" id="btnBackHome">Ritorna alla home</button>
+                    <h2>Riepilogo</h2>
+                    <div class="container">
+                        <p class="fs-3" id="correct">Corrette: </p>
+                        <p class="fs-3" id="wrong">Sbagliate: </p>
+                        <p class="fs-3" id="unanswered">Non risposte: </p>
+                        <p class="fs-3" id="score">Punteggio: </p>
+                    </div>
+                    <div class="container d-flex justify-content-center align-items-center" style="flex-direction: column;" id="recap-container">
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<script src="/js/jquery.min.js" type="text/javascript"></script>
+<script src="/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+<script src="/js/quiz.js" type="text/javascript"></script>
+</html>
